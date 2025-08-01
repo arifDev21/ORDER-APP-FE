@@ -12,7 +12,7 @@ interface AuthStore extends AuthState {
 export const useAuthStore = create<AuthStore>((set) => ({
   user: null,
   token: null,
-  isAuthenticated: null, // Start with null to indicate not initialized
+  isAuthenticated: null,
   isLoading: false,
 
   setLoading: (loading: boolean) => set({ isLoading: loading }),

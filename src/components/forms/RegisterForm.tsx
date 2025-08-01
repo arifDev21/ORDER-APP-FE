@@ -35,14 +35,19 @@ const RegisterForm: React.FC = () => {
       setTimeout(() => {
         router.push('/login');
       }, 2000);
-    } catch (error: any) {
+    } catch (error: unknown) {
       // Handle specific error cases
-      if (error?.response?.status === 409) {
-        setError('Email sudah terdaftar. Silakan gunakan email lain atau login dengan email tersebut.');
-      } else if (error?.response?.data?.message) {
-        setError(error.response.data.message);
-      } else if (error?.message) {
-        setError(error.message);
+      if (error && typeof error === 'object' && 'response' in error) {
+        const apiError = error as { response?: { status?: number; data?: { message?: string } } };
+        if (apiError.response?.status === 409) {
+          setError('Email sudah terdaftar. Silakan gunakan email lain atau login dengan email tersebut.');
+        } else if (apiError.response?.data?.message) {
+          setError(apiError.response.data.message);
+        } else {
+          setError('Registration failed. Please try again.');
+        }
+      } else if (error && typeof error === 'object' && 'message' in error) {
+        setError((error as { message: string }).message);
       } else {
         setError('Registration failed. Please try again.');
       }

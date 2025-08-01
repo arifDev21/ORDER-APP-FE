@@ -13,15 +13,8 @@ export const authService = {
   },
 
   async logout(): Promise<void> {
-    try {
-      // Backend mungkin tidak memiliki endpoint logout, jadi kita hanya clear localStorage
-      // await api.post('/auth/logout');
-    } catch (error) {
-      // Even if logout fails, we still want to clear local storage
-    } finally {
-      localStorage.removeItem('token');
-      localStorage.removeItem('user');
-    }
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
   },
 
   async getCurrentUser(): Promise<User> {

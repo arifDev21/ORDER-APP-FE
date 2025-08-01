@@ -1,7 +1,6 @@
 import { api } from './api';
 import { Product, ApiResponse } from '@/types';
 
-// Interface untuk response API yang sesuai dengan struktur backend
 interface ProductsResponse {
   products: Product[];
   count: number;

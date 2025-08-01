@@ -16,7 +16,6 @@ export default function RegisterPage() {
     }
   }, [isAuthenticated, router]);
 
-  // Show loading while checking authentication
   if (isAuthenticated === null) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-blue-50 flex items-center justify-center">

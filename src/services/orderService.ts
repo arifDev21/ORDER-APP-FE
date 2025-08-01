@@ -1,7 +1,6 @@
 import { api } from './api';
 import { Order, CreateOrderRequest, ApiResponse } from '@/types';
 
-// Interface untuk response API yang sesuai dengan struktur backend
 interface OrdersResponse {
   orders: Order[];
   count: number;

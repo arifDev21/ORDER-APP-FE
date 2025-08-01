@@ -8,7 +8,7 @@ export interface User {
 export interface Product {
   id: number;
   name: string;
-  price: string; // API mengembalikan string untuk price
+  price: string;
   stock: number;
   description?: string;
   created_at?: string;
@@ -63,7 +63,7 @@ export interface ApiResponse<T> {
 export interface AuthState {
   user: User | null;
   token: string | null;
-  isAuthenticated: boolean | null; // null means not initialized yet
+  isAuthenticated: boolean | null;
   isLoading: boolean;
 }
 

@@ -5,7 +5,7 @@ import { useOrderStore } from '@/store/orderStore';
 import { formatCurrency, formatDate, formatStatus } from '@/utils/format';
 import Card from '@/components/ui/Card';
 import ProtectedRoute from '@/components/layout/ProtectedRoute';
-import { History, AlertCircle, Package, Calendar, DollarSign } from 'lucide-react';
+import { History, AlertCircle, Package, Calendar } from 'lucide-react';
 
 function OrdersPageContent() {
   const { orders, fetchOrders, isLoading, error } = useOrderStore();
